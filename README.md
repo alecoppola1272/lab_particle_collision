@@ -1,2 +1,2 @@
-# ParticleLab
-Simulation of Particle Collision
+# Particle simulation lab
+Particle simulation using c++ and root
