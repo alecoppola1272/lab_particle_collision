@@ -9,7 +9,7 @@ public:
     Particle(const char *, double, double, double);
     Particle();
     static void AddParticleType(const char *, double, int, double);
-    // static void SetIndex(int );
+    void SetIndex(int );
     void SetIndex(const char *);
     static void PrintTypes();
     void Print();
@@ -18,6 +18,8 @@ public:
     double GetPz() const;
     double GetMass() const;
     double GetEnergy() const;
+    int GetCharge() const;
+    int GetIndex(); //const?
     void SetP(double, double, double);
     double InvMass(Particle &);
     int Decay2body(Particle &dau1, Particle &dau2) const;

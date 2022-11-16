@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
+
 int Particle::fNParticleType = 0;
 ParticleType *Particle::fParticleType[Particle::fMaxNumParticleType];
 Particle::Particle()
@@ -9,7 +10,7 @@ Particle::Particle()
     fPx_ = 0;
     fPy_ = 0;
     fPz_ = 0;
-    fIndex =0;
+    fIndex = 0;
 }
 Particle::Particle(const char *ParticleName, double fPx, double fPy, double fPz)
 {
@@ -43,18 +44,20 @@ double Particle::GetPz() const
 
 int Particle::FindParticle(const char *ParticleName)
 {
-    int index;
+    int index=0;
     for (int i = 0; i < fNParticleType; i++)
     {
-        if (fParticleType[i]->GetName() == ParticleName)
+
+        if (ParticleName == fParticleType[i]->GetName())
         {
-            index = i;
+            index=i;
             break;
         }
         else
         {
             std::cout << "No matches for " << ParticleName << " founded" << '\n';
-            index = -1;
+            index= -1;
+            break;
         }
     }
     return index;
@@ -65,7 +68,7 @@ void Particle::AddParticleType(const char *ParticleName, double ParticleMass, in
     if ((fNParticleType < fMaxNumParticleType))
     {
         int index = FindParticle(ParticleName);
-        std::cout << "VERIFING index : " << index << '\n';
+        // std::cout << "VERIFING index : " << index << '\n';
 
         if (index != -1)
         {
@@ -73,9 +76,14 @@ void Particle::AddParticleType(const char *ParticleName, double ParticleMass, in
             std::cout << "Particle already present" << '\n';
         }
         if (ParticleWidth == 0)
+        {
             fParticleType[fNParticleType] = new ParticleType(ParticleName, ParticleMass, ParticleCharge);
+        }
         else
+        {
             fParticleType[fNParticleType] = new ResonanceType(ParticleName, ParticleMass, ParticleCharge, ParticleWidth);
+        }
+        fNParticleType++;
     }
     else
     {
@@ -83,11 +91,11 @@ void Particle::AddParticleType(const char *ParticleName, double ParticleMass, in
         std::cout << "Maximum number of particle reached" << '\n';
     }
 }
-
+// check SetIndex with name
 void Particle::SetIndex(const char *ParticleName)
 {
     int index = FindParticle(ParticleName);
-    if (index != fMaxNumParticleType + 1)
+    if (index != -1)
     {
         std::cout << "Particle alredy present" << '\n';
     }
@@ -95,6 +103,28 @@ void Particle::SetIndex(const char *ParticleName)
     {
         fIndex = index;
     }
+}
+// check if
+void Particle::SetIndex(int index)
+{
+    if (fParticleType[index] != nullptr)
+    {
+        std::cout << "Particle alredy present" << '\n';
+    }
+    else
+    {
+        fIndex = index;
+    }
+}
+
+int Particle::GetIndex()
+{
+    return fIndex;
+}
+
+int Particle::GetCharge() const
+{
+    return fParticleType[fIndex]->GetCharge();
 }
 
 void Particle::PrintTypes()
@@ -168,7 +198,7 @@ int Particle::Decay2body(Particle &dau1, Particle &dau2) const
 
         // gaussian random numbers
 
-        float x1, x2, w, y1, y2;
+        float x1, x2, w, y1;
 
         double invnum = 1. / RAND_MAX;
         do
@@ -180,7 +210,7 @@ int Particle::Decay2body(Particle &dau1, Particle &dau2) const
 
         w = sqrt((-2.0 * log(w)) / w);
         y1 = x1 * w;
-        y2 = x2 * w;
+        // y2 = x2 * w;
 
         massMot += fParticleType[fIndex]->GetWidth() * y1;
     }
