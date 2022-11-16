@@ -97,7 +97,7 @@ void Particle::SetIndex(const char *ParticleName)
     int index = FindParticle(ParticleName);
     if (index != -1)
     {
-        std::cout << "Particle alredy present" << '\n';
+        std::cout << "Particle already present" << '\n';
     }
     else
     {
@@ -109,7 +109,7 @@ void Particle::SetIndex(int index)
 {
     if (fParticleType[index] != nullptr)
     {
-        std::cout << "Particle alredy present" << '\n';
+        std::cout << "Particle already present" << '\n';
     }
     else
     {
