@@ -8,6 +8,7 @@ class Particle
 public:
     Particle(const char *, double, double, double);
     Particle();
+    Particle(char*);
     static void AddParticleType(const char *, double, int, double);
     void SetIndex(int );
     void SetIndex(const char *);
