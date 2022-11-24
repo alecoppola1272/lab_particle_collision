@@ -12,6 +12,15 @@ Particle::Particle()
     fPz_ = 0;
     fIndex = 0;
 }
+
+Particle::Particle(char* fName){
+      if (FindParticle(fName) == -1) {
+    std::cout << "Cannot find the Particle. ";
+  } else {
+    fIndex = FindParticle(fName);
+  }
+}
+
 Particle::Particle(const char *ParticleName, double fPx, double fPy, double fPz)
 {
     fPx_ = fPx;
@@ -44,20 +53,14 @@ double Particle::GetPz() const
 
 int Particle::FindParticle(const char *ParticleName)
 {
-    int index=0;
+    int index=-1;
     for (int i = 0; i < fNParticleType; i++)
     {
 
         if (ParticleName == fParticleType[i]->GetName())
         {
             index=i;
-            break;
-        }
-        else
-        {
-            std::cout << "No matches for " << ParticleName << " founded" << '\n';
-            index= -1;
-            break;
+           return index;
         }
     }
     return index;

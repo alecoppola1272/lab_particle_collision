@@ -1,3 +1,4 @@
+/*
 #include "ParticleType.h"
 #include "ResonanceType.h"
 #include "Particle.h"
@@ -124,6 +125,7 @@ void macro()
                 k += 2;
                 
                 */
+               /*
             }
             hType->Fill(p.GetIndex());
             hTheta->Fill(theta);
@@ -135,6 +137,7 @@ void macro()
             EventParticles[j] = p;
                 
 */
+/*
         }
         
 
@@ -178,3 +181,4 @@ void macro()
     file->Write();
     file->Close();
 }
+/*
