@@ -54,7 +54,7 @@ void macro()
             double pz = impulse * cos(theta);
             double x = gRandom->Rndm();
             double y = gRandom->Rndm();
-//try with setIndex
+            // try with setIndex
             if (x < 0.4)
             {
                 p = Particle{"pi+", px, py, pz};
@@ -135,19 +135,19 @@ void macro()
 
         for (int j = 0; j < size - 1; j++)
         {
-            /*
+
             if (EventParticles[j].GetIndex() == 6)
             {
                 continue;
-            }*/
+            }
             for (int k = j + 1; k < size; k++)
             {
-                /*
+
                 if (EventParticles[k].GetIndex() == 6 || j == k)
                 {
                     continue;
                 }
-                */
+
                 double mass = EventParticles[j].InvMass(EventParticles[k]);
                 hinvmass0->Fill(mass);
                 if (EventParticles[j].GetCharge() * EventParticles[k].GetCharge() ==
@@ -179,8 +179,9 @@ void macro()
         EventParticles.clear(); // clear vectors
         ResonanceEvents.clear();
     }
-    //hinvmass_decay->Fit("gaus");
+    // hinvmass_decay->Fit("gaus");
     TFile *file = new TFile("particles.root", "RECREATE");
+    htypes->Write();
     hpav->Write();
     hangles->Write();
     henergy->Write();
