@@ -17,3 +17,15 @@ ResonanceType_cpp.so
 README.md
 README.md
 main.cpp
+particles.root
+data_analysis_cpp_ACLiC_dict_rdict.pcm
+data-analysis_cpp.d
+data-analysis_cpp.so
+DataAnalysis.cpp
+simulation_cpp_ACLiC_dict_rdict.pcm
+simulation_cpp.d
+simulation_cpp.so
+HistoData.txt
+InvMass.pdf
+ParticlesHistos.pdf
+.vscode/settings.json
