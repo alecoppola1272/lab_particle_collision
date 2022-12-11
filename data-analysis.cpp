@@ -9,7 +9,15 @@
 
 void data()
 {
-    TFile *file = new TFile("particles.root");
+
+    gStyle->SetOptStat(2210);
+    gStyle->SetOptFit(1111);
+    gStyle->SetStatW(0.15);
+    gStyle->SetStatH(0.15);
+    gStyle->SetStatX(0.9);
+    gStyle->SetStatY(0.9);
+
+    TFile *file = new TFile("particle.root");
     TH1 *htot[11];
     TString s[11] = {"types", "Angles", "pav", "Impulse",
                      "energy", "inv mass0", "inv mass1", "inv mass2",
@@ -33,7 +41,7 @@ void data()
     TF1 *f1 = new TF1{"f1", "[0]", 0, M_PI};
     TF1 *f2 = new TF1{"f2", "[0]", 0, 2 * M_PI};
 
-    TH1D *AngleX = ((TH2F *)file->Get(s[1]))->ProjectionX("AngleX", 0, 100);
+    TH1 *AngleX = ((TH2F *)file->Get(s[1]))->ProjectionX("AngleX", 0, 100);
     AngleX->SetTitle("Azimuthal Angle Distribution");
     TH1D *AngleY = ((TH2F *)file->Get(s[1]))->ProjectionY("AngleY", 0, 100);
     AngleY->SetTitle("Polar Angle Distribution");
@@ -46,11 +54,14 @@ void data()
 
     TH1F *SumCharges = new TH1F(*(TH1F *)file->Get(s[6]));
     TH1F *SumParticles = new TH1F(*(TH1F *)file->Get(s[8]));
+    for(int i=6; i<=9;i++){
+        htot[i]->Sumw2();
+    }
 
-    SumCharges->Add(htot[7], htot[6], 1, -1);
+    SumCharges->Add(htot[7], htot[6], -1, 1);
     SumCharges->SetTitle("Opposite charges minus Same charges");
 
-    SumParticles->Add(htot[9], htot[8], 1, -1);
+    SumParticles->Add(htot[9], htot[8], -1, 1);
     SumParticles->SetTitle("p+/k- and p-/k+ minus p+/k+ and p-/k-");
 
     TF1 *f4 = new TF1("f4", "gaus", 0, 7);
@@ -97,7 +108,7 @@ void data()
         txt << '\n';
         txt << '\n';
 
-        txt << "->POLAR ANGLES DISTRIBUTIONS: " << '\n';
+        txt << "->POLAR AND AZIMUTHAL ANGLES DISTRIBUTIONS: " << '\n';
 
         txt << "-->PHI" << '\n';
         txt << "Mean Entries per Bin: " << f2->GetParameter(0) << "+/- " << f2->GetParError(0) << '\n';
@@ -167,7 +178,7 @@ void data()
     TCanvas *c1 = new TCanvas("c1", "MyCanvas1", 200, 10, 500, 800);
     TCanvas *c2 = new TCanvas("c2", "MyCanvas2", 200, 10, 650, 800);
     c2->Divide(1, 3);
-    c2->Divide(1, 4);
+    c1->Divide(2, 2);
     c1->cd();
     for (int j = 0; j < 4; ++j)
     {
@@ -213,4 +224,3 @@ void data()
     c2->Print("InvMass.pdf");
     c2->Print("InvMass.pdf]");
 }
-

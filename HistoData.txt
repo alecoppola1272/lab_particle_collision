@@ -1,0 +1,86 @@
+=============================================
+|| ANALYZING GENERATED PARTICLE HISTOGRAMS ||
+=============================================
+
+
+->HISTOS ENTRIES: 
+Abundancies of generated Particles has 1e+08 entries. 
+Distribution of azimutal and polar angles has 1e+08 entries. 
+Average impulse Distribution has 1e+08 entries. 
+Trasverse impulse Distribution has 1e+08 entries. 
+Energy Distribution has 1e+08 entries. 
+Invariant Mass Distribution has 5.05049e+09 entries. 
+Invariant Mass Distribution (opposite charges) has 2.52571e+09 entries. 
+Invariant Mass Distribution (same charges) has 2.52478e+09 entries. 
+Invariant Mass Distribution (p+/k- or p-/k+) has 2.38813e+08 entries. 
+Invariant Mass Distribution (p+/k+ or p-/k-) has 2.37807e+08 entries. 
+Invariant Mass Distribution (decay) has 999980 entries. 
+
+
+->NUMBER OF OCCURRENCIES FOR EACH PARTICLE:
+pi+ was generated 1.67772e+07 +/- 4096 times
+pi- was generated 1.67772e+07 +/- 4096 times
+k+ was generated 4.99884e+06 +/- 2235.81 times
+k- was generated 4.99947e+06 +/- 2235.95 times
+p+ was generated 4.50203e+06 +/- 2121.8 times
+p- was generated 4.50062e+06 +/- 2121.47 times
+k* was generated 999980 +/- 999.99 times
+
+
+->ABUNDANCIES (%): 
+pi+ 167.772+/-0.04096 %
+pi- 167.772+/-0.04096 %
+k+ 49.9884+/-0.0223581 %
+k- 49.9947+/-0.0223595 %
+p+ 45.0203+/-0.021218 %
+p- 45.0062+/-0.0212147 %
+k* 9.9998+/-0.0099999 %
+
+
+->POLAR AND AZIMUTHAL ANGLES DISTRIBUTIONS: 
+-->PHI
+Mean Entries per Bin: 999999+/- 99.9999
+Mean: 3.14167+/- 0.000181378 rad
+Chi Square: 105.951
+Degrees of Freedom: 99
+Reduced Chi Square 1.07021
+--> THETA: 
+Mean Entries per Bin: 999999+/- 99.9999
+Mean: 1.57098+/- 9.06891e-05 rad
+Chi Square: 106.628
+Degrees of Freedom: 99
+Reduced Chi Square 1.07705
+
+
+AVERAGE IMPULSE DISTRIBUTION: 
+Multiplicative coefficient of exponential fit: 700098 +/- 99.8873 GeV 
+Mean: 1.00015 +/- 0
+Chi square: 990.967
+Degrees of Freedom: 998
+Reduced Chi square: 0.992953
+Fit probability: 0.556801
+
+
+INVARIANT MASS BETWEEN DECAY PRODUCTS OF SAME K*: 
+Mean: 0.891683 +/- 5.00442e-05  GeV/c^2
+RMS: 0.0500388 +/- 3.52381e-05  GeV/c^2
+Width: 53146.3 +/- 65.0018  GeV/c^2
+Reduced Chi square: 1.10052
+
+
+->INVARIANT MASS DISTRIBUTIONS: 
+-->SAME CHARGES AND OPPOSITE CHARGES:
+Mean: 0.892311 +/- 0.0015427  GeV/c^2
+RMS: 0.0501067 +/- 0.00150591  GeV/c^2
+Width: 24336.4 +/- 642.877  GeV/c^2
+Reduced Chi Square: 0.962069
+Fit probability: 0.586884
+-->PARTICLES AND ANTIPARTICLES:
+Mean: 0.892023 +/- 0.000628165  GeV/c^2
+RMS: 0.0499665 +/- 0.000621138  GeV/c^2
+Width: 55960.1 +/- 608.677  GeV/c^2
+Reduced Chi Square: 0.949245
+Fit probability: 0.586884
+
+
+//FILE END//

@@ -39,9 +39,9 @@ void macro()
     TH1F *hinvmass4 = new TH1F("inv mass4", "Invariant Mass Distribution (p+/k+ or p-/k-)", 1000, 0, 7.);
     TH1F *hinvmass_decay = new TH1F("inv mass decay", "Invariant Mass Distribution (decay)", 300, 0, 2);
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 1E6; i++)
     {
-        for (int j = 1; j <= 1000; ++j)
+        for (int j = 1; j <= 100; ++j)
         {
 
             Particle p;
@@ -173,14 +173,14 @@ void macro()
                      EventParticles[k].GetIndex() == 3))
                 {
                     hinvmass4->Fill(mass);
-                }
+                }   
             }
         }
         EventParticles.clear(); // clear vectors
         ResonanceEvents.clear();
     }
-    // hinvmass_decay->Fit("gaus");
-    TFile *file = new TFile("particles.root", "RECREATE");
+    //hinvmass_decay->Fit("gaus");
+    TFile *file = new TFile("particle.root", "RECREATE");
     htypes->Write();
     hpav->Write();
     hangles->Write();
